@@ -1,8 +1,8 @@
 import str_edit as stredit
+print("---Очиститель номеров---")
 filename = input("Введите название файла:")
 try:
 	f = open(filename+'.txt')
-
 except:
 	print("Поместите номера в файл "+filename+".txt.\nЗатем закройте программу и повторите попытку.\nНажмите enter для закрытия программы.")
 	input()
