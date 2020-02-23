@@ -10,18 +10,20 @@ if file[-4:-1]+file[-1] != '.txt':
 
 run = True
 clip = clipboard.paste()
-clip = clipboard.paste()
+clip2 = clipboard.paste()
 
 print('Начало:')
 while run == True:
 	clip2 = clip
 	clip = clipboard.paste()
 	if clip != clip2:
-		paste = clip.replace("-", "")
+		paste = clip
+		paste = paste.replace("-", "")
 		paste = paste.replace(" ", "")
 		paste = paste.replace("\n", "")
 		paste = paste.replace(")", "")
 		paste = paste.replace("(", "")
+		paste = paste.replace("\u2011", "")
 		if paste[0:1] == "8":
 			paste = stredit.change(paste, 1 , "+7")
 
