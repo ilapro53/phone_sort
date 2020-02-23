@@ -38,12 +38,14 @@ finally:
 
 try:
 	f = open(filename.replace("*", str(int(number)+1))+".txt", "a+")
+	fsn = open('Send.txt', "w")
 	'''
 	if f.read()[-1] != "\n":
 		f.write("\n")
 	'''
 	for n in newlist:
 		f.write(n)
+		fsn.write(n)
 finally:
 	f.close()
 
@@ -53,4 +55,4 @@ try:
 		f.write(n)
 finally:
 	f.close()
-input()
+input('Нажмите enter для закрытия')
