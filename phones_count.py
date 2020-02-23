@@ -12,9 +12,9 @@ try:
 		fs.close()
 	f = open(filename.replace("*", number)+'.txt')
 except:
-	print("Поместите номера в файл "+filename++".txt.\nЗатем закройте программу и повторите попытку.\nНажмите enter для закрытия программы.")
+	print("Поместите номера в файл "+filename+".txt.\nЗатем закройте программу и повторите попытку.\nНажмите enter для закрытия программы.")
 	input()
-	exit()
+	exit(0)
 phones=[]
 
 
