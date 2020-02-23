@@ -25,19 +25,25 @@ print("Номеров было в \""+filename.replace("*", number)+'.txt" :'+st
 replace_count = input("Сколько номеров перместить в \""+filename.replace("*", str(int(number)+1))+'.txt\" и поместить в "Send.txt"?:')
 replace_count=int(replace_count)
 newlist=[]
-for n in range(replace_count):
-	newlist.append(phones[0])
-	phones.pop(0)
-f.close()
+try:
+	for n in range(replace_count):
+		newlist.append(phones[0])
+		phones.pop(0)
+except:
+	print('Нельзя переместить больше номеров, чем есть в файле "'+filename.replace("*", number)+'.txt" '+'('+str(len(phones))+')')
+	input('Нажмите enter для закрытия')
+	exit(0)
+finally:
+	f.close()
 
 try:
 	f = open(filename.replace("*", str(int(number)+1))+".txt", "a+")
 	'''
 	if f.read()[-1] != "\n":
 		f.write("\n")
+	'''
 	for n in newlist:
 		f.write(n)
-	'''
 finally:
 	f.close()
 
