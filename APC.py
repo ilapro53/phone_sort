@@ -10,6 +10,8 @@ def txtadd(filename):
 
 print('---Auto Phone Clip---')
 file = txtadd(input('Название файла:'))
+f = open(file, "a+")
+f.close()
 print('Файл "'+file+'" открыт\n')
 
 
