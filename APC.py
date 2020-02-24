@@ -1,10 +1,16 @@
 import clipboard
 import str_edit as stredit
 
+def txtadd(filename):
+	try:
+		if filename[-4:-1]+filename[-1] != '.txt':
+			filename = filename + '.txt'
+	finally:
+		return filename
+
 print('---Auto Phone Clip---')
-file = input('Название файла:')
-if file[-4:-1]+file[-1] != '.txt':
-	file = file + '.txt'
+file = txtadd(input('Название файла:'))
+print('Файл "'+file+'" открыт\n')
 
 
 

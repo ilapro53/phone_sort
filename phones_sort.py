@@ -1,10 +1,25 @@
 import str_edit as stredit
+
+def txtadd(filename):
+	try:
+		if filename[-4:-1]+filename[-1] != '.txt':
+			filename = filename + '.txt'
+	finally:
+		return filename
+
+def txtremove(filename):
+	try:
+		if filename[-4:-1]+filename[-1] == '.txt':
+			filename = filename[0:len(filename)-4]
+	finally:
+		return filename
+
 print("---Очиститель номеров---")
-filename = input("Введите название файла:")
+filename = txtadd(input("Введите название файла:"))
 try:
-	f = open(filename+'.txt')
+	f = open(filename)
 except:
-	print("Поместите номера в файл "+filename+".txt.\nЗатем закройте программу и повторите попытку.\nНажмите enter для закрытия программы.")
+	print("Поместите номера в файл "+filename+".\nЗатем закройте программу и повторите попытку.\nНажмите enter для закрытия программы.")
 	input()
 	exit()
 phones=[]
@@ -21,8 +36,8 @@ for n in range(len(phones)):
 		phones[n] = stredit.change(phones[n], 1 , "+7")
 phones = list(set(phones))
 print("Номеров стало после обработки:"+str(len(phones)))
-f = open(filename+'_output.txt', "w+")
+f = open(txtremove(filename)+'_output.txt', "w+")
 for n in phones:
 	f.write(n+"\n")
 f.close()
-input("Номера телефонов из "+filename+".txt обработаны и сохранены в "+filename+"_output.txt")
+input("Номера телефонов из "+filename+" обработаны и сохранены в "+txtremove(filename)+"_output.txt")
